@@ -1,0 +1,55 @@
+key
+1.查看所有匹配的key： keys pattern
+2.判断key是否存在： exists key
+3.移动key到指定库：move key index
+4.设置过期时间：expire key seconds
+5.重命名key：rename key newkey
+6.删除key：del key
+7.添加数据：set key value
+8.获取数据：get key
+9.加减数据：incrby/decrby key increment
+
+list
+1.插入数据到表头 lpush key value1 value2...
+2.插入数据到表尾 rpush key value1 value2...
+3.删除列表表头 lpop key
+4.删除列表表尾 rpop key
+5.获取指定列表中指定下标的元素并返回：lindex key index
+6.获取指定列表的长度：llen key
+7.根据count的值移除列表中的指定的某一些元素：lrem key count value（count>0:从表头开始数前n个；count<0:从表尾开始数前n个；count=0：移除所有跟value相同的元素）
+
+set
+1.将一个或多个元素添加到指定的集合中：sadd key member1 member2...
+2.获取指定集合中的所有元素：smembers key
+3.判断指定元素在指定集合中是否存在：sismember key member; 存在返回1，不存在返回0；
+4.获取指定集合的长度：scard key
+5.移除指定集合中一个或者多个元素：srem key member1 member2...(不存的元素会忽略)
+6.随机获取指定集合中的n个元素：srandmember key [count];(count不指定，默认为1；7..7..count>0：随机获取的数不重复，count<0：随机获取的数可能重复)
+7.从指定集合中随机移除一个或者多个元素：spop key [count]（count不指定，默认为1）；
+8.指定集合中移动指定一个元素到另一个集合中：smove source destination member;
+9.返回差集（一个集合中有，其他集合没有）：sdiff key key...
+10.返回交集（两个集合共同存在的值）：sinter key1 key2...
+11.返回并集（两个集合所有值）：sunion key1 key2...
+
+hash
+1.将一个或多个键值对存储到指定集合中：hset key filed value ...
+2.获取hash表中指定的filed值：hget key filed；
+3.批量获取hash表中指定的filed值：hmget key filed1 filed2...；
+4.获取指定hash表中的所有filed和value：hgetall key;
+5.删除指定hash表中的一个或者多个filed：hdel key filed1 filed2...
+6.获取指定hash表中所有的filed的个数：hlen key
+7.判断指定hash表中指定的filed是否存在：hexists key filed
+8.获取指定hash表中所有filed的列表：hkeys key；
+9.获取指定hash表中所有value的值：hvals key;
+
+zset
+1.将一个或者多个member及score加入有序集合：zadd key score1 member1 score2 member2 
+2.根据指定集合获取指定区间的元素：zrange key startindex endindex
+3.根据指定分数区间获取元素：zrangebyscore key min max
+4.删除指定集合中一个或多个指定元素：zrem key member1 member2...
+5.获取集合中元素的个数：zcard key
+6.获取指定元素的排名：zrank key member（排名从0开始） zrevrank(倒叙排名：从大到小)
+7.获取指定集合中在指定分数区间的元素个数：zcount key min max
+8.获取指定集合中的指定元素的分数：zscore key member
+
+
